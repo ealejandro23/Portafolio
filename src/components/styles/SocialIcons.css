@@ -1,0 +1,30 @@
+.social-icons {
+  position: fixed;
+  left: 2rem;
+  bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 50;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  color: rgba(245, 243, 239, 0.4);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  transition: color 0.2s;
+  writing-mode: initial;
+}
+
+.social-link:hover {
+  color: var(--green);
+}
+
+@media (max-width: 768px) {
+  .social-icons { display: none; }
+}

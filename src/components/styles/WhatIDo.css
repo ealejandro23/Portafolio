@@ -1,0 +1,235 @@
+.whatIDO {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100vh;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  z-index: 9;
+  background: var(--ink);
+}
+
+.what-box {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 9;
+}
+
+.what-box .title {
+  font-family: var(--f-display);
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 1;
+  font-weight: 800;
+  margin-right: 10%;
+  margin-bottom: 80px;
+  color: var(--paper);
+  letter-spacing: -0.02em;
+}
+
+.what-accent {
+  color: var(--green);
+}
+
+.what-box-in {
+  flex-direction: column;
+  height: 500px;
+  margin-left: 150px;
+  position: relative;
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .what-box-in {
+    display: flex;
+  }
+}
+
+.what-content {
+  width: 450px;
+  height: 33%;
+  min-height: 50%;
+  transition: 0.5s;
+  position: relative;
+  padding: 50px;
+  box-sizing: border-box;
+  color: var(--paper);
+}
+
+.what-noTouch:hover,
+.what-content-active {
+  min-height: 67%;
+  padding: 40px 50px;
+}
+
+.what-noTouch:hover ~ .what-content,
+.what-box-in:hover .what-noTouch:not(:hover),
+.what-content.what-sibling {
+  min-height: 33%;
+  padding: 10px 50px;
+}
+
+.what-content h3 {
+  font-family: var(--f-display);
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin: 0;
+  font-weight: 800;
+  color: var(--paper);
+}
+
+.what-content p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  color: rgba(245,243,239,0.7);
+}
+
+.what-content h4 {
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--green);
+  margin-bottom: 0.5rem;
+}
+
+.what-content-in {
+  opacity: 0;
+  animation: whatFlicker 0.5s 1 forwards;
+  animation-delay: 1s;
+  height: 100%;
+  overflow: hidden;
+}
+
+@keyframes whatFlicker {
+  0%, 25%, 35%, 60% { opacity: 0; }
+  30%, 50%, 40%, 100% { opacity: 1; }
+}
+
+.what-content::before,
+.what-corner::before,
+.what-content::after,
+.what-corner::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border: 3px solid var(--green);
+  opacity: 0;
+  animation: whatCorners 0.2s 1 forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes whatCorners { 100% { opacity: 1; } }
+
+.what-content::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+.what-corner::before  { top: -2px; right: -2px; border-left: none; border-bottom: none; }
+.what-content::after  { bottom: -2px; left: -2px; border-top: none; border-right: none; }
+.what-corner::after   { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+.what-arrow {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 25px;
+  height: 25px;
+  border: 1px solid rgba(0,200,150,0.5);
+}
+
+.what-arrow::before {
+  content: '';
+  position: absolute;
+  top: 40%; left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  border-left: 1px solid var(--green);
+  border-bottom: 1px solid var(--green);
+  transition: 0.5s;
+  width: 10px; height: 10px;
+}
+
+.what-noTouch:hover .what-arrow::before,
+.what-content-active .what-arrow::before {
+  transform: translate(-50%, -20%) rotate(-225deg);
+}
+
+.what-border1 {
+  position: absolute;
+  top: 0; width: 100%; left: 50%;
+  transform: translateX(-50%);
+  height: 100%; transition: 0.5s;
+  max-width: 0%; overflow: hidden;
+  opacity: 0.8;
+  animation: whatBorders 1.2s 1 forwards;
+}
+
+.what-border1 svg {
+  position: absolute; left: 50%;
+  transform: translateX(-50%); width: 450px;
+}
+
+.what-border2 {
+  position: absolute; top: 50%; width: 100%; left: 0;
+  transform: translateY(-50%); height: 100%;
+  max-height: 0%; overflow: hidden;
+  transition: 0.5s; opacity: 0.8;
+  animation: whatBorders 1.2s 1 forwards;
+}
+
+.what-border2 svg {
+  height: 500px; top: 50%;
+  transform: translateY(-50%); position: absolute;
+}
+
+@keyframes whatBorders {
+  80%  { opacity: 0.8; }
+  100% { max-height: 100%; max-width: 100%; opacity: 0.2; }
+}
+
+.what-content-in h5 {
+  font-family: var(--f-mono);
+  font-weight: 300;
+  color: var(--green);
+  opacity: 0.7;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0.75rem 0 0.4rem;
+}
+
+.what-content-flex {
+  display: flex; gap: 5px; flex-wrap: wrap;
+}
+
+.what-tags {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  font-weight: 400;
+  padding: 3px 8px;
+  background: rgba(0,200,150,0.08);
+  border: 1px solid rgba(0,200,150,0.25);
+  border-radius: 30px;
+  color: rgba(245,243,239,0.85);
+}
+
+@media (max-width: 1400px) {
+  .what-box-in { margin-left: 50px; height: 420px; }
+  .what-content { width: 380px; padding: 30px; }
+  .what-noTouch:hover, .what-content-active { padding: 20px 30px; }
+  .what-noTouch:hover ~ .what-content,
+  .what-box-in:hover .what-noTouch:not(:hover),
+  .what-content.what-sibling { padding: 10px 30px; }
+}
+
+@media (max-width: 900px) {
+  .whatIDO { flex-direction: column; height: auto; padding: 4rem 0; }
+  .what-box { width: 90%; max-width: 540px; margin: auto; }
+  .what-box .title { margin: 2rem 0; font-size: 3rem; }
+  .what-box:last-child { height: 480px; }
+  .what-content { width: 100%; padding: 30px; }
+  .what-box-in { margin-left: 0; height: 440px; }
+}

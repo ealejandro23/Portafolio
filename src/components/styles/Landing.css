@@ -1,0 +1,167 @@
+.landing-section {
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+}
+
+.landing-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  height: 100%;
+  position: relative;
+}
+
+.landing-intro {
+  position: absolute;
+  z-index: 9;
+  top: 12%;
+  left: 0;
+}
+
+.landing-intro h2 {
+  margin: 0;
+  color: var(--green);
+  font-family: var(--f-mono);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.landing-intro h1 {
+  margin: 0;
+  letter-spacing: 0.05em;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1;
+  font-weight: 700;
+  font-family: var(--f-display);
+}
+
+.landing-name-outline {
+  -webkit-text-stroke: 1.5px var(--paper);
+  color: transparent;
+  display: block;
+}
+
+.landing-info {
+  position: absolute;
+  right: 0;
+  bottom: 10%;
+  z-index: 9;
+  text-align: right;
+}
+
+.landing-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  background: rgba(0, 200, 150, 0.08);
+  border: 1px solid rgba(0, 200, 150, 0.2);
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  color: var(--teal);
+  margin-bottom: 1rem;
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulseDot 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulseDot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 200, 150, 0.5); }
+  70%       { box-shadow: 0 0 0 6px rgba(0, 200, 150, 0); }
+}
+
+.landing-info h3 {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  letter-spacing: 0.08em;
+  font-weight: 300;
+  color: rgba(245, 243, 239, 0.6);
+  margin: 0;
+  font-family: var(--f-mono);
+}
+
+.landing-info-h2 {
+  position: relative;
+  overflow: hidden;
+  height: 1.1em;
+  margin: 0;
+}
+
+.landing-info-h2,
+.landing-info h2 {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.landing-h2-1 { position: relative; }
+.landing-h2-2 {
+  position: absolute;
+  top: 0; left: 0;
+  color: var(--paper);
+  clip-path: inset(0 100% 0 0);
+  animation: revealText 3s 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes revealText {
+  0%   { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 0% 0 0); }
+}
+
+.landing-info > h2:last-child {
+  position: relative;
+  overflow: hidden;
+  height: 1.2em;
+  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+  color: rgba(245, 243, 239, 0.85);
+  margin-top: -0.2em;
+}
+
+.landing-h2-info { position: relative; }
+.landing-h2-info-1 {
+  position: absolute;
+  top: 0; left: 0;
+  color: var(--green);
+  clip-path: inset(0 100% 0 0);
+  animation: revealText 3s 2s ease-in-out infinite alternate;
+}
+
+/* Ambient circles from Navbar.tsx are fixed, so they show through */
+@media (min-width: 1025px) {
+  .landing-intro {
+    top: 50%;
+    right: 55%;
+    left: auto;
+    transform: translateY(-50%);
+  }
+  .landing-info {
+    bottom: auto;
+    top: 50%;
+    right: auto;
+    left: 55%;
+    transform: translateY(-50%);
+    text-align: left;
+  }
+  .landing-badge { margin-bottom: 0.75rem; }
+}
+
+@media (min-width: 1400px) {
+  .landing-intro { right: 60%; }
+  .landing-info  { left: 60%; }
+}

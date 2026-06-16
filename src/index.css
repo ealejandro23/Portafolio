@@ -1,0 +1,53 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ink: #0b0c10;
+  --paper: #f5f3ef;
+  --card: #ffffff;
+  --green: #00c896;
+  --teal: #007f6e;
+  --warm: #ff6b35;
+  --light-green: rgba(0, 200, 150, 0.08);
+  --border: #e8e3db;
+  --muted: #7a7672;
+  --f-display: 'Syne', sans-serif;
+  --f-body: 'Space Grotesk', sans-serif;
+  --f-mono: 'JetBrains Mono', monospace;
+  --r: 16px;
+  --r-lg: 28px;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--f-body);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+::selection {
+  background: var(--green);
+  color: var(--ink);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--green);
+  border-radius: 2px;
+}
