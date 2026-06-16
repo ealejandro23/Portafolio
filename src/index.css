@@ -24,6 +24,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -32,6 +33,12 @@ body {
   font-family: var(--f-body);
   overflow-x: hidden;
   line-height: 1.6;
+}
+
+img,
+svg,
+canvas {
+  max-width: 100%;
 }
 
 ::selection {

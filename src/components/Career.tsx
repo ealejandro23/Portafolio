@@ -46,15 +46,18 @@ const Career = () => {
 
   useEffect(() => {
     if (!sectionRef.current) return
-    gsap.from(sectionRef.current.querySelectorAll('.career-item'), {
-      x: -40,
-      opacity: 0,
-      duration: 0.7,
-      stagger: 0.15,
+    const isMobile = window.matchMedia('(max-width: 768px)').matches
+    const careerItems = sectionRef.current.querySelectorAll('.career-item')
+    gsap.set(careerItems, { opacity: 1, clearProps: 'opacity' })
+    gsap.from(careerItems, {
+      x: isMobile ? -16 : -40,
+      duration: isMobile ? 0.35 : 0.7,
+      stagger: isMobile ? 0.07 : 0.15,
       ease: 'power3.out',
+      clearProps: 'transform',
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: 'top 75%',
+        start: isMobile ? 'top 92%' : 'top 75%',
       },
     })
   }, [])

@@ -30,14 +30,8 @@ const Landing = () => {
             </div>
             <div className="landing-info-block">
               <h3>Ingeniero en</h3>
-              <h2 className="landing-info-h2">
-                <div className="landing-h2-1">Informática</div>
-                <div className="landing-h2-2">Informática</div>
-              </h2>
-              <h2>
-                <div className="landing-h2-info">con mención IA</div>
-                <div className="landing-h2-info-1">con mención IA</div>
-              </h2>
+              <h2 className="landing-info-h2">Informática</h2>
+              <h2 className="landing-info-subtitle">con mención IA</h2>
             </div>
           </div>
         </div>

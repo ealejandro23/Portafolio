@@ -33,7 +33,7 @@ const Contact = () => {
                 +56 9 9097 2646
               </a>
             </p>
-            <p style={{ marginTop: '0.5rem', color: 'var(--muted)', fontSize: '0.82rem' }}>
+            <p style={{ marginTop: '0.5rem', color: 'rgba(245, 243, 239, 0.58)', fontSize: '0.82rem' }}>
               📍 Maipú, Santiago · Chile
             </p>
           </div>
@@ -68,7 +68,7 @@ const Contact = () => {
           <div className="contact-box">
             <h2 className="contact-credits">
               Diseñado & Desarrollado <br /> por{' '}
-              <span>Esteban Gamboa</span>
+              <span>Esteban Gamboa & el mismísimo wknowme (▀̿Ĺ̯▀̿ )̿</span>
             </h2>
             <h5>
               <MdCopyright /> 2025

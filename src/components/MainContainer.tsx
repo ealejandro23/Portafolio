@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import About from './About'
 import Career from './Career'
 import Contact from './Contact'
@@ -14,14 +14,7 @@ import { useLoading } from '../context/LoadingProvider'
 const TechStack = lazy(() => import('./TechStack'))
 
 const MainContainer = () => {
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024)
   const { isLoading } = useLoading()
-
-  useEffect(() => {
-    const handleResize = () => setIsDesktop(window.innerWidth > 1024)
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
 
   useEffect(() => {
     if (!isLoading) {
@@ -41,15 +34,13 @@ const MainContainer = () => {
       <WhatIDo />
       <Career />
       <Work />
-      {isDesktop && (
-        <Suspense fallback={
-          <div style={{ height: '500px', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <span style={{ fontFamily: 'var(--f-mono)', color: 'var(--green)', fontSize: '0.8rem' }}>// cargando tech stack...</span>
-          </div>
-        }>
-          <TechStack />
-        </Suspense>
-      )}
+      <Suspense fallback={
+        <div style={{ height: '320px', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <span style={{ fontFamily: 'var(--f-mono)', color: 'var(--green)', fontSize: '0.8rem' }}>// cargando tech stack...</span>
+        </div>
+      }>
+        <TechStack />
+      </Suspense>
       <Contact />
     </div>
   )

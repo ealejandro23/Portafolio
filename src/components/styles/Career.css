@@ -155,3 +155,38 @@
   .career-section { padding: 4rem 0; }
   .career-top { flex-direction: column; }
 }
+
+@media (max-width: 520px) {
+  .career-title {
+    font-size: clamp(1.65rem, 9vw, 2.25rem);
+    margin-bottom: 2rem;
+  }
+
+  .career-timeline {
+    padding-left: 1.25rem;
+    gap: 1.25rem;
+  }
+
+  .career-dot {
+    left: -1.25rem;
+  }
+
+  .career-card {
+    padding: 1.2rem;
+  }
+
+  .career-card:hover {
+    transform: none;
+  }
+
+  .career-role,
+  .career-company,
+  .career-date,
+  .career-list li {
+    overflow-wrap: anywhere;
+  }
+
+  .career-top > div:last-child {
+    align-items: flex-start !important;
+  }
+}

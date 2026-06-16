@@ -3,3 +3,15 @@
   margin: 0 auto;
   padding: 0 2.5rem;
 }
+
+@media (max-width: 768px) {
+  .section-container {
+    padding: 0 1.25rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .section-container {
+    padding: 0 1rem;
+  }
+}

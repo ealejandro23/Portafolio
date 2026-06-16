@@ -2,18 +2,30 @@
   position: fixed;
   inset: 0;
   background: var(--ink);
-  z-index: 9999;
+  z-index: 30000;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.loading-glitch-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.32;
+  pointer-events: none;
 }
 
 .loading-inner {
   display: flex;
   align-items: flex-end;
   gap: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .loading-logo {
@@ -42,6 +54,7 @@
   background: rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .loading-bar-fill {
@@ -56,4 +69,22 @@
 
 @keyframes loadBar {
   to { width: 100%; }
+}
+
+@media (max-width: 520px) {
+  .loading-glitch-bg {
+    opacity: 0.24;
+  }
+
+  .loading-inner {
+    gap: 1rem;
+  }
+
+  .loading-logo {
+    font-size: clamp(2.4rem, 14vw, 3rem);
+  }
+
+  .loading-bar-track {
+    width: min(220px, 72vw);
+  }
 }

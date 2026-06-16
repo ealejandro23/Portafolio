@@ -47,32 +47,33 @@ const projects = [
 
 const Work = () => {
   useGSAP(() => {
-    let translateX = 0
+    function getTranslateX() {
+      const flex = document.querySelector('.work-flex') as HTMLElement | null
+      if (!flex || !flex.parentElement) return 0
 
-    function setTranslateX() {
-      const box = document.getElementsByClassName('work-box')
-      if (!box.length) return
-      const rectLeft = document.querySelector('.work-container')!.getBoundingClientRect().left
-      const rect = box[0].getBoundingClientRect()
-      const parentWidth = box[0].parentElement!.getBoundingClientRect().width
-      const padding = parseInt(window.getComputedStyle(box[0]).padding) / 2
-      translateX = rect.width * box.length - (rectLeft + parentWidth) + padding
+      const boxes = Array.from(flex.querySelectorAll<HTMLElement>('.work-box'))
+      const lastBox = boxes[boxes.length - 1]
+      if (!lastBox) return 0
+
+      const parentWidth = flex.parentElement.clientWidth
+      const paddingRight = parseFloat(window.getComputedStyle(flex).paddingRight) || 0
+      const contentWidth = lastBox.offsetLeft + lastBox.offsetWidth + paddingRight
+      return Math.max(0, contentWidth - parentWidth)
     }
-
-    setTranslateX()
 
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: '.work-section',
         start: 'top top',
-        end: `+=${translateX}`,
+        end: () => `+=${getTranslateX()}`,
         scrub: true,
         pin: true,
         id: 'work',
+        invalidateOnRefresh: true,
       },
     })
 
-    timeline.to('.work-flex', { x: -translateX, ease: 'none' })
+    timeline.to('.work-flex', { x: () => -getTranslateX(), ease: 'none' })
 
     return () => {
       timeline.kill()

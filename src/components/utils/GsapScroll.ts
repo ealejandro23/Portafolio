@@ -4,13 +4,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 export function setAllTimeline() {
+  const isMobile = window.matchMedia('(max-width: 768px)').matches
+
   // Reveal WhatIDo panel
   gsap.to('.what-box-in', {
     display: 'flex',
     duration: 0.1,
     scrollTrigger: {
       trigger: '.whatIDO',
-      start: 'top 60%',
+      start: isMobile ? 'top 88%' : 'top 60%',
     },
   })
 

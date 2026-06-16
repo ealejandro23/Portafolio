@@ -10,15 +10,18 @@ const About = () => {
 
   useEffect(() => {
     if (!sectionRef.current) return
-    gsap.from(sectionRef.current.querySelectorAll('.about-reveal'), {
-      y: 40,
-      opacity: 0,
-      duration: 0.7,
-      stagger: 0.12,
+    const isMobile = window.matchMedia('(max-width: 768px)').matches
+    const revealItems = sectionRef.current.querySelectorAll('.about-reveal')
+    gsap.set(revealItems, { opacity: 1, clearProps: 'opacity' })
+    gsap.from(revealItems, {
+      y: isMobile ? 18 : 40,
+      duration: isMobile ? 0.35 : 0.7,
+      stagger: isMobile ? 0.06 : 0.12,
       ease: 'power3.out',
+      clearProps: 'transform',
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: 'top 80%',
+        start: isMobile ? 'top 92%' : 'top 80%',
       },
     })
   }, [])

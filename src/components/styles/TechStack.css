@@ -2,6 +2,7 @@
   background: var(--ink);
   padding-top: 4rem;
   position: relative;
+  overflow: hidden;
 }
 
 .techstack .section-container {
@@ -9,8 +10,27 @@
 }
 
 @media (max-width: 768px) {
+  .techstack {
+    padding-top: 3.5rem;
+  }
+
   .techstack .section-container {
     padding: 0 1.25rem 1rem;
+  }
+
+  .tech-title {
+    font-size: clamp(1.9rem, 10vw, 2.7rem);
+    line-height: 1.05;
+    margin-bottom: 1rem;
+  }
+
+  .tech-legend {
+    gap: 0.45rem;
+  }
+
+  .tech-pill {
+    font-size: 0.64rem;
+    padding: 0.22rem 0.55rem;
   }
 }
 
@@ -73,5 +93,19 @@
 }
 
 @media (max-width: 768px) {
-  .tech-canvas { height: 300px !important; }
+  .tech-canvas { height: 340px !important; }
+}
+
+@media (max-width: 420px) {
+  .techstack {
+    padding-top: 3rem;
+  }
+
+  .techstack .section-container {
+    padding: 0 1rem 0.75rem;
+  }
+
+  .tech-canvas {
+    height: 300px !important;
+  }
 }
