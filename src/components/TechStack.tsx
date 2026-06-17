@@ -21,6 +21,12 @@ const techItems = [
   { label: 'HTML/CSS', color: '#E34F26' },
   { label: 'Git', color: '#F05032' },
   { label: 'Spring', color: '#6DB33F' },
+  { label: 'Java', color: '#FFB6C1' },
+  { label: 'n8n', color: '#7CFC00' },
+  { label: 'PostgreSQL', color: '#DC143C' },
+  { label: 'React', color: '#DAA520' },
+  { label: 'Docker', color: '#90EE90' }
+  
 ]
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28)
