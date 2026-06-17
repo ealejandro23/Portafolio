@@ -98,6 +98,7 @@ const WhatIDo = () => {
                 <div className="what-tags">Hardware</div>
                 <div className="what-tags">Jupyter</div>
                 <div className="what-tags">Data Analysis</div>
+                <div className="what-tags">Prevencion de riesgos</div>
               </div>
               <div className="what-arrow" />
             </div>
