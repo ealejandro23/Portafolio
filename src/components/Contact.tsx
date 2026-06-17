@@ -68,10 +68,10 @@ const Contact = () => {
           <div className="contact-box">
             <h2 className="contact-credits">
               Diseñado & Desarrollado <br /> por{' '}
-              <span>Esteban Gamboa & el mismísimo wknowme (▀̿Ĺ̯▀̿ )̿</span>
+              <span>Esteban Gamboa</span>
             </h2>
             <h5>
-              <MdCopyright /> 2025
+              <MdCopyright /> 2026
             </h5>
           </div>
         </div>
