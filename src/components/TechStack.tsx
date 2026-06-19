@@ -25,7 +25,8 @@ const techItems = [
   { label: 'n8n', color: '#7CFC00' },
   { label: 'PostgreSQL', color: '#DC143C' },
   { label: 'React', color: '#DAA520' },
-  { label: 'Docker', color: '#90EE90' }
+  { label: 'Docker', color: '#90EE90' },
+  { label: 'MongoDB', color: '#40E0D0' }
   
 ]
 
